@@ -1,0 +1,38 @@
+<variant
+    name="release"
+    package="com.aeonx.bvc.bvc"
+    minSdkVersion="16"
+    targetSdkVersion="31"
+    shrinking="true"
+    mergedManifest="/Volumes/Personal/Upwork/April/BVC/build/app/intermediates/merged_manifest/release/AndroidManifest.xml"
+    manifestMergeReport="/Volumes/Personal/Upwork/April/BVC/build/app/outputs/logs/manifest-merger-release-report.txt"
+    proguardFiles="/Volumes/Personal/Upwork/April/BVC/build/app/intermediates/default_proguard_files/global/proguard-android.txt-7.1.2:/Volumes/Total/Software/Flutter/flutter/packages/flutter_tools/gradle/flutter_proguard_rules.pro:proguard-rules.pro"
+    partialResultsDir="/Volumes/Personal/Upwork/April/BVC/build/app/intermediates/lint_vital_partial_results/release/out">
+  <buildFeatures
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifest="src/main/AndroidManifest.xml"
+        javaDirectories="src/main/java:src/main/kotlin"
+        resDirectories="src/main/res"
+        assetsDirectories="src/main/assets"/>
+    <sourceProvider
+        manifest="src/release/AndroidManifest.xml"
+        javaDirectories="src/release/java:src/release/kotlin"
+        resDirectories="src/release/res"
+        assetsDirectories="src/release/assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <manifestPlaceholders>
+    <placeholder
+        name="applicationName"
+        value="android.app.Application" />
+  </manifestPlaceholders>
+  <mainArtifact
+      classOutputs="/Volumes/Personal/Upwork/April/BVC/build/app/intermediates/javac/release/classes:/Volumes/Personal/Upwork/April/BVC/build/app/tmp/kotlin-classes/release:/Volumes/Personal/Upwork/April/BVC/build/app/kotlinToolingMetadata:/Volumes/Personal/Upwork/April/BVC/build/app/intermediates/compile_and_runtime_not_namespaced_r_class_jar/release/R.jar"
+      applicationId="com.aeonx.bvc.bvc"
+      generatedSourceFolders="/Volumes/Personal/Upwork/April/BVC/build/app/generated/ap_generated_sources/release/out:/Volumes/Personal/Upwork/April/BVC/build/app/generated/aidl_source_output_dir/release/out:/Volumes/Personal/Upwork/April/BVC/build/app/generated/source/buildConfig/release:/Volumes/Personal/Upwork/April/BVC/build/app/generated/renderscript_source_output_dir/release/out"
+      generatedResourceFolders="/Volumes/Personal/Upwork/April/BVC/build/app/generated/res/rs/release:/Volumes/Personal/Upwork/April/BVC/build/app/generated/res/resValues/release">
+  </mainArtifact>
+</variant>
