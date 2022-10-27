@@ -39,7 +39,7 @@ class _ProjectState extends State<Project> {
   @override
   void initState() {
     super.initState();
-    //futureData = fetchData();
+    futureData = fetchData();
   }
 
   @override

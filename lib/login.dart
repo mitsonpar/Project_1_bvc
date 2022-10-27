@@ -144,7 +144,7 @@ class _LoginState extends State<Login> {
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Project()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home()));
                 },
                 child: Text(
                   'Login',
