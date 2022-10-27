@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class Materialy extends StatefulWidget{
   @override
@@ -6,329 +7,163 @@ class Materialy extends StatefulWidget{
 }
 String? place;
 class _MaterialyState extends State<Materialy> {
+  int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Material'),
-        centerTitle: true,
-        backgroundColor: Colors.blue,
-      ),
-      body: Center(
-          child: ListView(
-            padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0, bottom:12.0),
-            children: <Widget>[
-              SizedBox(height: 10),
-
-              Text("This is Material Description",textAlign: TextAlign.center),
-              SizedBox(height: 20),
-              /*
-              ListTile(
-                  leading: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: 450,
-                      minHeight: 500,
-                      maxWidth: 450,
-                      maxHeight: 500,
-                    ),
-                    child: Image.asset('assets/corona.png', fit: BoxFit.fill),
-                  )),*/
-
-              ListTile(
-                  //visualDensity: VisualDensity(horizontal: 0, vertical: 2),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10))),
-                  tileColor: Colors.cyan[300],
-                  iconColor: Colors.cyan[600],
-                  visualDensity: VisualDensity(vertical: 4),
-                  title: Text("Project 1",style: TextStyle(color: Colors.white)),
-                  subtitle: Text("This is description of project 1.",style: TextStyle(color: Colors.white)),
-                  leading: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: 64,
-                      minHeight: 64,
-                      maxWidth: 64,
-                      maxHeight: 64,
-                    ),
-                    child: Image.asset('assets/logo.png', fit: BoxFit.cover),
-                  ),
-                  trailing: Icon(Icons.star),
-                  onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => Visitor()));
-                  }),
-              SizedBox(height: 30),
-              ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10))),
-                  tileColor: Colors.purple[300],
-                  iconColor: Colors.purple[600],
-                  visualDensity: VisualDensity(vertical: 4),
-                  title: Text("Project 2",style: TextStyle(color: Colors.white)),
-                  subtitle: Text("This is description of project 2.",style: TextStyle(color: Colors.white)),
-                  leading: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: 64,
-                      minHeight: 64,
-                      maxWidth: 64,
-                      maxHeight: 64,
-                    ),
-                    child: Image.asset('assets/logo.png', fit: BoxFit.cover),
-                  ),
-                  trailing: Icon(Icons.star),
-                  onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => Gallery()));
-                  }),
-              SizedBox(height: 30),
-              ListTile(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10))),
-                  tileColor: Colors.lightGreen[300],
-                  iconColor: Colors.lightGreen[600],
-                  visualDensity: VisualDensity(vertical: 4),
-                  title: Text("Project 3",style: TextStyle(color: Colors.white)),
-                  subtitle: Text("This is description of project 3.",style: TextStyle(color: Colors.white)),
-                  leading: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: 64,
-                      minHeight: 64,
-                      maxWidth: 64,
-                      maxHeight: 64,
-                    ),
-                    child: Image.asset('assets/logo.png', fit: BoxFit.cover),
-                  ),
-                  trailing: Icon(Icons.star),
-                  onTap: () {
-                    //Navigator.push(context, MaterialPageRoute(builder: (context) => Gallery()));
-                  }),
-              //ListTile( title: Text("Ballot"),subtitle: Text("Cast your vote."), leading:  CircleAvatar(backgroundImage: AssetImage("assets/react.png")), trailing: Icon(Icons.star))
-            ],
-          )
-      ),
-
-      //drawer: const NavigationDrawer(),
-      /*
-      Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Image(
-                image: AssetImage('assets/logo.png'),
-                height: 200,
-                width: 300,
-              ),
-              //Text('Drawer Header'),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.history,
-              ),
-              title: const Text('Booking History'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.people,
-              ),
-              title: Text('About us'),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => Aboutus()));
-              },
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.call,
-              ),
-              title: TextButton(
-                child: new Text('Contact us'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Contactus()),
-                  );
-                }
-                ),
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.logout,
-              ),
-              title: const Text('Logout'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            Divider(
-              color: Colors.grey,
-            ),
-            ListTile(
-              title: const Text(''),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text(''),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomRight,
-                child: ListTile(
-                  hoverColor: Colors.lightBlue,
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {},
+          ),
+          /*
+          bottomNavigationBar: BottomAppBar(
+            color: Colors.blueGrey,
+            child: Container(height: 50.0),
+          ),*/
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+          appBar: AppBar(
+            bottom: const TabBar(
+              tabs: [
+                Tab(icon: Text("Approved",textAlign: TextAlign.center)),
+                Tab(icon: Text("Unapproved",textAlign: TextAlign.center)),
+              ],
+            ), // TabBar
+            title: const Text('PR'),
+            backgroundColor: Colors.blue,
+          ), // AppBar
+          body: TabBarView(
+            children: [
+              //Added here
+              Table(
+                  columnWidths: {
+                    0: FlexColumnWidth(0.2),
+                    1: FlexColumnWidth(1.0),
+                    2: FlexColumnWidth(0.3),
+                  },
+                  //defaultColumnWidth: FixedColumnWidth(120.0),
                   /*
-                  leading: Icon(
-                    Icons.null,
-                    color: Colors.grey,
-                  ),*/
-                  title: Text('Version #0.001'),
-                  onTap: () {},
-                ),
-              ),
-            ),
-          ],
-        ),
+                  border: TableBorder.all(
+                    color: Colors.black,
+                    style: BorderStyle.solid,
+                    width: 2
+                    ),*/
+                  children: [
 
-      ),*/
-    );
+                    TableRow( children: [
+                      Column(
+                          children:[
+                            TextButton(
+                              onPressed: (){
+
+                              },
+                              child: Text(
+                                '1',
+                                style: TextStyle(color: Colors.black, fontSize: 15),
+                              ),
+                            )]),
+                      Column(
+                          children:[
+                            TextButton(
+                              onPressed: (){
+
+                              },
+                              child: Text(
+                                'Pr no 1',
+                                style: TextStyle(color: Colors.black, fontSize: 15),
+                              ),
+                            )]),
+                      Column(
+                          children:[
+                            TextButton(
+                              onPressed: (){
+
+                              },
+                              child: Text(
+                                'Edit',
+                                style: TextStyle(color: Colors.black, fontSize: 15),
+                              ),
+                            )]),
+                    ]),
+                    TableRow( children: [
+                      Column(
+                          children:[
+                            TextButton(
+                              onPressed: (){
+
+                              },
+                              child: Text(
+                                '2',
+                                style: TextStyle(color: Colors.black, fontSize: 15),
+                              ),
+                            )]),
+                      Column(
+                          children:[
+                            TextButton(
+                              onPressed: (){
+
+                              },
+                              child: Text(
+                                'Pr no 2',
+                                style: TextStyle(color: Colors.black, fontSize: 15),
+                              ),
+                            )]),
+                      Column(
+                          children:[
+                            TextButton(
+                              onPressed: (){
+
+                              },
+                              child: Text(
+                                'Edit',
+                                style: TextStyle(color: Colors.black, fontSize: 15),
+                              ),
+                            )]),
+                    ]),
+                  ]),
+              //To here
+              Icon(Icons.music_video),
+            ],
+          ), // TabBarView
+          bottomNavigationBar: BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'Home',
+                  backgroundColor: Colors.yellow,
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.home),
+                    label: 'Project',
+                    backgroundColor: Colors.blue
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.people),
+                    label: 'Approvals',
+                    backgroundColor: Colors.green,
+                ),
+              ],
+              type: BottomNavigationBarType.shifting,
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.black,
+              iconSize: 40,
+              onTap: _onItemTapped,
+              elevation: 5
+          ),
+        ), // Scaffold
+      ), // DefaultTabController
+    ); // MaterialApp
   }
 }
-/*
-class NavigationDrawer extends StatelessWidget{
-  const NavigationDrawer({Key? key}) : super (key:key);
-
-  @override
-  Widget build(BuildContext context) => Drawer(
-    child: SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          buildHeader(context),
-          buildMenuItems(context),
-        ],
-      )
-    )
-  );
-  Widget buildHeader(BuildContext context) => Container();
-
-  Widget buildMenuItems(BuildContext context) => Column(
-      children: [
-        DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.blue,
-          ),
-          child: Image(
-            image: AssetImage('assets/logo.png'),
-            height: 200,
-            width: 300,
-          ),
-          //Text('Drawer Header'),
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.history,
-          ),
-          title: const Text('Material'),
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => History()
-            ));
-          },
-        ),
-        Divider(
-          color: Colors.grey,
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.people,
-          ),
-          title: Text('About us'),
-          onTap: () {
-            Navigator.pop(context);
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => Aboutus()
-            ));
-          },
-        ),
-        Divider(
-          color: Colors.grey,
-        ),
-
-        ListTile(
-          leading: Icon(
-            Icons.call,
-          ),
-          title: Text('Contact us'),
-          onTap: () {
-              Navigator.pop(context);
-              Navigator.of(context).push(MaterialPageRoute(
-              builder: (BuildContext context) => Contactus()
-              ));
-              },
-          ),
-        Divider(
-          color: Colors.grey,
-        ),
-        ListTile(
-          leading: Icon(
-            Icons.logout,
-          ),
-          title: const Text('Logout'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        Divider(
-          color: Colors.grey,
-        ),
-        Expanded(
-          child: Align(
-            alignment: FractionalOffset.bottomRight,
-            child: ListTile(
-              hoverColor: Colors.lightBlue,
-              /*
-                  leading: Icon(
-                    Icons.null,
-                    color: Colors.grey,
-                  ),*/
-              title: Text('Version #0.001'),
-              onTap: () {},
-            ),
-          ),
-        ),
-      ],
-  );
-}*/

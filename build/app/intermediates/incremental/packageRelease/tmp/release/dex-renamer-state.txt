@@ -1,4 +1,4 @@
-#Mon Oct 17 15:31:10 IST 2022
+#Thu Oct 27 14:48:40 IST 2022
 base.0=/Volumes/Personal/Upwork/April/BVC/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

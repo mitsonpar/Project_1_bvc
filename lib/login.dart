@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:bvc/home.dart';
+import 'package:bvc/login_model.dart';
+import 'package:bvc/All_apis.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:bvc/project.dart';
 
 class Login extends StatefulWidget{
   @override
@@ -9,6 +15,27 @@ class Login extends StatefulWidget{
 
 class _LoginState extends State<Login> {
   int check=0;
+  List<Login_model> _loginList = new List<Login_model>.empty();
+
+  @override
+  void initState() {
+    try {
+      getLoginfromApi();
+    }
+    catch(e)
+    {
+      Fluttertoast.showToast(
+          msg: "Error "+e.toString(),
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
+    }
+    super.initState();
+  }
   @override
   Widget build(BuildContext context)
   {
@@ -18,7 +45,22 @@ class _LoginState extends State<Login> {
         title: Text("Login Page"),
       ),
       body: SingleChildScrollView(
-        child: Column(
+        child:
+        // FROM HERE
+        /*
+        ListView.builder(
+            itemCount: _loginList.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(_loginList[index].title),
+                subtitle: Text(_loginList[index].id.toString()),
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage('https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Site%20owner%20turning%20images%20into%20links.jpg'),
+                ),
+              );
+            }),
+        */
+        Column(
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 60.0),
@@ -102,10 +144,10 @@ class _LoginState extends State<Login> {
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Project()));
                 },
                 child: Text(
-                  'Register',
+                  'Login',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
               ),
@@ -115,7 +157,8 @@ class _LoginState extends State<Login> {
             ),
             Text('Already User? Login now')
           ],
-        ),
+
+        ), // TO HERE
       ),
     );
     /*
@@ -159,5 +202,24 @@ class _LoginState extends State<Login> {
           ]
     )
     );*/
+  }
+  void getLoginfromApi() async {
+    All_apis.getLogin().then((response) {
+      setState(() {
+        Iterable list = jsonDecode(response.body);
+        //json.decode(response.body);
+        //http.defaultDecoder = Login_model.listFromJson;
+        _loginList = list.map((model) => Login_model.fromJson(model)).toList();
+        Fluttertoast.showToast(
+            msg: "This is "+_loginList[0].title,
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0
+        );
+      });
+    });
   }
 }

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Volumes/Personal/Upwork/April/BVC/build/fluttertoast/intermediates/merged_res/release/drawable/corner.xml",
+        "source": "/Users/willmeet/.pub-cache/hosted/pub.dev/fluttertoast-8.1.1/android/src/main/res/drawable/corner.xml"
+    },
+    {
+        "merged": "/Volumes/Personal/Upwork/April/BVC/build/fluttertoast/intermediates/merged_res/release/drawable/toast_bg.xml",
+        "source": "/Users/willmeet/.pub-cache/hosted/pub.dev/fluttertoast-8.1.1/android/src/main/res/drawable/toast_bg.xml"
+    },
+    {
+        "merged": "/Volumes/Personal/Upwork/April/BVC/build/fluttertoast/intermediates/merged_res/release/drawable/notification_bg.xml",
+        "source": "/Users/willmeet/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Volumes/Personal/Upwork/April/BVC/build/fluttertoast/intermediates/merged_res/release/drawable/notification_bg_low.xml",
+        "source": "/Users/willmeet/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Volumes/Personal/Upwork/April/BVC/build/fluttertoast/intermediates/merged_res/release/drawable/notification_icon_background.xml",
+        "source": "/Users/willmeet/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/Volumes/Personal/Upwork/April/BVC/build/fluttertoast/intermediates/merged_res/release/drawable/notification_tile_bg.xml",
+        "source": "/Users/willmeet/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/drawable/notification_tile_bg.xml"
+    }
+]
